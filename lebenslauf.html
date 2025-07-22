@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lebenslauf Dawid Chojna</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(120deg, #e0eafc 0%, #f7f7f7 100%);
+            color: #222;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 24px auto;
+            background: #fff;
+            box-shadow: 0 4px 24px rgba(42,77,122,0.10);
+            border-radius: 18px;
+            padding: 32px 32px 24px 32px;
+        }
+        @media print {
+            body {
+                background: #fff !important;
+                color: #222;
+            }
+            .container {
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                margin: 0 !important;
+                padding: 0 0 0 0 !important;
+                max-width: 100% !important;
+            }
+            .header {
+                border-bottom: 2px solid #e0e0e0;
+                margin-bottom: 24px;
+                padding-bottom: 16px;
+            }
+            .header img {
+                width: 80px !important;
+                height: 80px !important;
+                margin-right: 24px !important;
+            }
+            section {
+                margin-bottom: 24px !important;
+                page-break-inside: avoid;
+            }
+            h2 {
+                font-size: 1.1em !important;
+                margin-bottom: 8px !important;
+                border-bottom: 1px solid #e0e0e0;
+                padding-bottom: 2px;
+            }
+            .skills {
+                gap: 8px !important;
+            }
+            .skill {
+                font-size: 0.95em !important;
+                padding: 4px 10px !important;
+            }
+            @page {
+                size: A4;
+                margin: 18mm 14mm 18mm 14mm;
+            }
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #e0eafc;
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+        }
+        .header img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 22px;
+            background: #e0eafc;
+            border: 3px solid #2a4d7a;
+        }
+        .header-info h1 {
+            margin: 0 0 8px 0;
+            font-size: 2.4em;
+            color: #2a4d7a;
+            letter-spacing: 1px;
+        }
+        .header-info p {
+            margin: 0;
+            font-size: 1.15em;
+            color: #444;
+        }
+        .header-info {
+            flex: 1;
+        }
+        .header-info h1 {
+            margin: 0 0 8px 0;
+            font-size: 2.2em;
+            color: #2a4d7a;
+        }
+        .header-info p {
+            margin: 0;
+            font-size: 1.1em;
+        }
+        .contact-box {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .contact-icon {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        section {
+            margin-bottom: 22px;
+        }
+        .flex-row {
+            display: block;
+        }
+        .flex-col {
+            background: #f3f7ff;
+            border-radius: 14px;
+            padding: 18px 22px;
+            box-shadow: 0 2px 8px rgba(42,77,122,0.07);
+            margin-bottom: 18px;
+        }
+        h2 {
+            color: #2a4d7a;
+            font-size: 1.25em;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #e0eafc;
+            padding-bottom: 2px;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            background: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4c4.svg') no-repeat center center;
+            background-size: contain;
+        }
+        h2.profile::before { background-image: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f464.svg'); }
+        h2.skills::before { background-image: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4bb.svg'); }
+        h2.exp::before { background-image: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4c8.svg'); }
+        h2.edu::before { background-image: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f393.svg'); }
+        h2.cert::before { background-image: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4dd.svg'); }
+        h2.lang::before { background-image: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f310.svg'); }
+        .job {
+            margin-bottom: 18px;
+            background: #f7f7f7;
+            border-radius: 10px;
+            padding: 12px 18px;
+            box-shadow: 0 1px 4px rgba(42,77,122,0.04);
+        }
+        .job-title {
+            font-weight: bold;
+            color: #2a4d7a;
+            font-size: 1.08em;
+        }
+        .job-period {
+            color: #666;
+            font-size: 0.95em;
+        }
+        ul {
+            margin: 8px 0 0 18px;
+        }
+        .education, .certificate, .language {
+            margin-bottom: 12px;
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skill {
+            background: #e0eafc;
+            color: #2a4d7a;
+            padding: 7px 16px;
+            border-radius: 18px;
+            font-size: 1em;
+            font-weight: 500;
+            box-shadow: 0 1px 4px rgba(42,77,122,0.08);
+            letter-spacing: 0.2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="../__CREATIVE_POT/FOTOS/Platzhalter/varB-maennlein-80.jpg" alt="Profilbild Dawid Chojna">
+            <div class="header-info">
+                <h1>Dawid Chojna</h1>
+            </div>
+            <div class="contact-box">
+                <span><span class="contact-icon" style="background:url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3e0.svg')"></span>Hussitenstraße 23, 2828 Görlitz</span>
+                <span><span class="contact-icon" style="background:url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2709.svg')"></span>chojna.dawid1@gmail.com</span>
+                <span><span class="contact-icon" style="background:url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4f1.svg')"></span>+48 692 223 144</span>
+            </div>
+        </div>
+        <div class="flex-col">
+            <h2 class="profile">Kurzprofil</h2>
+            <p>IT-affiner Support-Spezialist mit Erfahrung in internationalen Unternehmen und vielseitigen Projekten. Starke analytische Fähigkeiten, lösungsorientiertes Arbeiten und hohe Kommunikationskompetenz. Leidenschaft für neue Technologien und kontinuierliche Weiterbildung. Erfahrung in Blockchain Wallet- und App-Entwicklung, Smart Contracts und GitHub Copilot.</p>
+        </div>
+        <div class="flex-col">
+            <h2 class="skills">IT-Kompetenzen</h2>
+            <div style="display:flex; flex-wrap:wrap; gap:32px;">
+                <div>
+                    <strong style="display:block; margin-bottom:8px;">Programmiersprachen (KI-gestützt, z.B. mit GitHub Copilot):</strong>
+                    <div class="skills" style="margin-bottom:12px;">
+                        <div class="skill">HTML</div>
+                        <div class="skill">CSS</div>
+                        <div class="skill">JavaScript</div>
+                        <div class="skill">TypeScript</div>
+                        <div class="skill">Python</div>
+                        <div class="skill">Solidity</div>
+                        <div class="skill">React</div>
+                    </div>
+                </div>
+                <div>
+                    <strong style="display:block; margin-bottom:8px;">Tools & Systeme:</strong>
+                    <div class="skills" style="margin-bottom:12px;">
+                        <div class="skill">Windows Betriebssysteme</div>
+                        <div class="skill">Office 365 Administration</div>
+                        <div class="skill">Active Directory</div>
+                        <div class="skill">Remote Support</div>
+                        <div class="skill">Ticket-Systeme (z.B. ServiceNow)</div>
+                        <div class="skill">Blockchain Wallet Entwicklung</div>
+                        <div class="skill">Smart Contracts (inkl. Staking)</div>
+                    </div>
+                </div>
+                <div>
+                    <strong style="display:block; margin-bottom:8px;">Soft Skills:</strong>
+                    <div class="skills">
+                        <div class="skill">Teamarbeit</div>
+                        <div class="skill">Kommunikation</div>
+                        <div class="skill">IT-Training & Onboarding</div>
+                        <div class="skill">Troubleshooting</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section>
+            <h2 class="exp">Berufserfahrung</h2>
+            <div class="job">
+                <span class="job-title">Centralised Technology Specialist, IBM Global Services Delivery Center, Polen</span>
+                <ul>
+                    <li>2nd Level Support für internationale Kunden (Deutsch/Englisch)</li>
+                    <li>Analyse und Lösung komplexer IT-Probleme (Windows, Office 365)</li>
+                    <li>Schulungen und Onboarding neuer Mitarbeiter</li>
+                    <li>Dokumentation und Prozessoptimierung</li>
+                </ul>
+            </div>
+            <div class="job">
+                <span class="job-title">Customer Services Representative, IBM Global Services Delivery Center, Polen</span>
+                <ul>
+                    <li>1st Level Support (Windows, Office 365)</li>
+                    <li>Bearbeitung von Tickets und Remote-Support</li>
+                    <li>Kommunikation mit internationalen Kunden</li>
+                </ul>
+            </div>
+            <div class="job">
+                <span class="job-title">Sozialbetreuer, DRK & PulsM, Office, Deutschland</span>
+                <ul>
+                    <li>Soziale Begleitung und Unterstützung in verschiedenen Einrichtungen</li>
+                </ul>
+            </div>
+            <div class="job">
+                <span class="job-title">Selbständigkeit – Dawid Faith (Musikprojekt & App-Entwicklung)</span>
+                <ul>
+                    <li>Eigenes Musikprojekt mit Fokus auf Reichweite und Erfolg durch eigene Songs</li>
+                    <li>Entwicklung einer Social-Media-App (React, TypeScript, Vercel) zur Belohnung von Engagement (Exp, D.FAITH Token, Level-System)</li>
+                    <li>Custom Blockchain-Wallet und Staking Smart Contracts selbst entwickelt</li>
+                    <li>Projektmanagement und technische Organisation</li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <h2 class="edu">Ausbildung</h2>
+            <div class="education">
+                <strong>Johannes-Gutenberg-Universität Mainz, Deutschland</strong><br>
+                Fachbereich Translations-, Sprach- und Kulturwissenschaft
+            </div>
+            <div class="education">
+                <strong>Berufliches Gymnasium für Gesundheit und Soziales, Deutschland</strong><br>
+                Allgemeine Hochschulreife
+            </div>
+        </section>
+        <section>
+            <h2 class="lang">Sprachen</h2>
+            <div style="display:flex; gap:18px; flex-wrap:wrap; margin-top:8px;">
+                <div class="language"><img src="https://img.icons8.com/color/24/000000/germany.png" alt="Deutsch" style="vertical-align:middle; margin-right:6px;">Deutsch – C2</div>
+                <div class="language"><img src="https://img.icons8.com/color/24/000000/poland.png" alt="Polnisch" style="vertical-align:middle; margin-right:6px;">Polnisch – C1</div>
+                <div class="language"><img src="https://img.icons8.com/color/24/000000/great-britain.png" alt="Englisch" style="vertical-align:middle; margin-right:6px;">Englisch – B2</div>
+                <div class="language"><img src="https://img.icons8.com/color/24/000000/spain.png" alt="Spanisch" style="vertical-align:middle; margin-right:6px;">Spanisch – A2</div>
+            </div>
+        </section>
+        <section>
+            <h2 class="cert">Zertifikate</h2>
+            <div class="certificate">
+                <img src="https://img.icons8.com/color/32/000000/microsoft.png" alt="Microsoft" style="vertical-align:middle; margin-right:8px;">MS 10997 Office 365 Administration and Troubleshooting
+            </div>
+        </section>
+    </div>
+</body>
+</html>
